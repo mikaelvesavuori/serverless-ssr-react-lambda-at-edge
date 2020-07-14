@@ -1,0 +1,15 @@
+{
+	"editor.renderWhitespace": "none",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.formatOnSave": true,
+	"eslint.packageManager": "yarn",
+	"prettier.singleQuote": true,
+	"prettier.printWidth": 100,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 2,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
+}

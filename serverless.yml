@@ -1,0 +1,28 @@
+service:
+  name: lambda-at-edge-react-ssr
+
+frameworkVersion: ">=1.6.0 <2.0.0"
+
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage,'dev'}
+  region: us-east-1 # Lambda@Edge functions have to be in US East 1
+
+custom:
+  webpack:
+    webpackConfig: "webpack.server.js"
+    includeModules: true
+
+functions:
+  ssr:
+    handler: server/server.handler
+    description: Render site
+    events:
+      - cloudFront:
+          eventType: origin-request
+          pathPattern: /*
+          origin: http://ssr-demo.s3-website.eu-north-1.amazonaws.com
