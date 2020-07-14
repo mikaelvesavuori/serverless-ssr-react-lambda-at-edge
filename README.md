@@ -31,8 +31,10 @@ Webpack configs are available for both client and server, and for development us
 
 - Amazon Web Services account
 - Credentials that support using S3, Cloudfront, Lambda, CloudFormation
+- Create an S3 bucket where you will put your static site assets
 - Logged in to AWS through your environment
 - Serverless Framework installed globally (?)
+- AWS CLI installed
 
 ## Install dependencies
 
@@ -48,6 +50,12 @@ Build client and server with `npm run build:server` or `yarn run build:server`. 
 
 - `npm run build:client` or `yarn run build:client`
 - `npm run build:server` or `yarn run build:server`
+
+## MANUAL STEP, PRE-DEPLOYMENT: Edit package script to point to your bucket
+
+In `package.json` there is a step called `deploy:client`. It needs to point to your own bucket [which you must enable Static Site Hosting for](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), as well.
+
+Also, edit the `BUCKET_ORIGIN` variable in `serverless.yml`.
 
 ## Deploying
 
@@ -87,6 +95,7 @@ This approach has the added benefit of giving you the exact same results as it w
 
 ## References
 
+- [Hosting a static website on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
 - [Requirements and Restrictions on Lambda Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html)
 - [AWS Lambda permissions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html)
 - [Testing and Debugging Lambda@Edge Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-testing-debugging.html)

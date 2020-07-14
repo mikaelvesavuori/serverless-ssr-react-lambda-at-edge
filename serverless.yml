@@ -13,6 +13,7 @@ provider:
   region: us-east-1 # Lambda@Edge functions have to be in US East 1
 
 custom:
+  BUCKET_ORIGIN: http://<your-bucket>.s3-website.<your-region>.amazonaws.com
   webpack:
     webpackConfig: "webpack.server.js"
     includeModules: true
@@ -25,4 +26,4 @@ functions:
       - cloudFront:
           eventType: origin-request
           pathPattern: /*
-          origin: http://ssr-demo.s3-website.eu-north-1.amazonaws.com
+          origin: ${self:custom.BUCKET_ORIGIN}

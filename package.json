@@ -44,7 +44,7 @@
 		"dev": "webpack-dev-server --config webpack.dev.js --open --mode development",
 		"debug:compiled": "sls package && mkdir -p ./.serverless/__temp__ && unzip ./.serverless/lambda-at-edge-react-ssr.zip -d ./.serverless/__temp__ && code ./.serverless/__temp__/server/server.js",
 		"build:client": "rm -rf dist && webpack --config webpack.client.js",
-		"deploy:client": "aws s3 sync --delete ./dist s3://ssr-demo",
+		"deploy:client": "aws s3 sync --delete ./dist s3://<your-bucket>",
 		"build:server": "sls package",
 		"deploy:server": "sls deploy"
 	}
