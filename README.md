@@ -81,13 +81,13 @@ You can absolutely clean the code to be runnable from your machine more easily, 
 
 Being lazy, the fastest and "easiest" way to test real, bundled code has been to:
 
-- Compile your function code with `sls package`
-- Go to the `/.serverless/` folder, unzip the ZIP package and open your (minified) function code
-- Go to the Lambda panel in the AWS GUI/console
-- Copy-and-paste the code into the function code editor, click `Save`
-- Test the code with `Test`
+1. Compile your function code with `sls package`
+2. Go to the `/.serverless/` folder, unzip the ZIP package and open your (minified) function code
+3. Go to the Lambda panel in the AWS GUI/console
+4. Copy-and-paste the code into the function code editor, click `Save`
+5. Test the code with `Test`
 
-_I've bundled those steps into the `debug:compiled` package script_. The step adds a `__temp__` folder into `.serverless` and attempts to open it with Visual Studio Code. You may need to modify the script if you change the script names, and/or don't use VS Code.
+_I've bundled the first two steps into the `debug:compiled` package script_. The step adds a `__temp__` folder into `.serverless` and attempts to open it with Visual Studio Code. You may need to modify the script if you change the script names, and/or don't use VS Code.
 
 When you get the hang of this, you can even do those above steps manually in less than 20 seconds.
 
